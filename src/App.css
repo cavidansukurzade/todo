@@ -1,0 +1,63 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: #e7e7e7;
+}
+.App{
+  width: 500px;
+  margin: 50px auto;
+}
+.todo-input{
+  height: 50px;
+  display: flex;
+}
+.todo-input input{
+  width: 90%;
+  height: 100%;
+  font-size: 20px;
+  padding-left: 5px;
+}
+.todo-input button{
+  width: 10%;
+  height: 50px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.todo-container{
+  padding-top: 20px;
+}
+.todo-container .todo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0px;
+  border-bottom: 1px solid black;
+  font-size: 20px;
+}
+.todo-container .todo>div input{
+  margin-right: 5px;
+}
+.todo-container .todo .deleter{
+  outline-color: red;
+}
+.clear{
+  margin-top: 10px;
+  height: 40px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: gray;
+  float: right;
+}
+@media (max-width:600px) {
+  .App{
+    width: 90%;
+  }
+}
