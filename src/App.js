@@ -14,7 +14,7 @@ function App() {
   const [todoValue, setTodoValue] = useState("");
   const [todos, setTodos] = useState(getTodosFromLS());
   const handleSubmit = (e) => {
-    if (todoValue.length < 15) {
+    if (todoValue.length < 21) {
       e.preventDefault();
       const date = new Date();
       const time = date.getTime();
