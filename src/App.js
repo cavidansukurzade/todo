@@ -82,7 +82,7 @@ function App() {
                 style={
                   individualTodo.completed === true
                     ? { textDecoration: "line-through", color: "gray" }
-                    : { textDecoration: "none", color: "black" }
+                    : { textDecoration: "none", color: "rgb(0, 140, 255)" }
                 }
               >
                 {individualTodo.TodoValue}
