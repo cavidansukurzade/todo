@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { FaCheck } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 import { FaTrashRestore } from "react-icons/fa";
 import "./App.css";
@@ -15,7 +14,8 @@ function App() {
   const [todoValue, setTodoValue] = useState("");
   const [todos, setTodos] = useState(getTodosFromLS());
   const handleSubmit = (e) => {
-    e.preventDefault();
+    if(todoValue.length<15){
+      e.preventDefault();
     const date = new Date();
     const time = date.getTime();
     let todoObject = {
@@ -25,6 +25,10 @@ function App() {
     };
     setTodos([...todos, todoObject]);
     setTodoValue("");
+    }
+    else{
+      alert("Max symbol size is 15")
+    }
   };
   const handleDelete = (id) => {
     const filtered = todos.filter((todo) => {
