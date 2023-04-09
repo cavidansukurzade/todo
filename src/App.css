@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
 }
 body {
   background-color: #ade7f6;
@@ -101,6 +103,8 @@ h1 {
   align-items: center;
   padding: 20px;
   box-shadow: 0px 0px 10px 1px rgba(87, 87, 87, 0.75);
+  color: rgb(0, 140, 255);
+  font-weight: 500;
 }
 .count_clear .clear {
   height: 40px;
