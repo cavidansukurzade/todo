@@ -14,20 +14,19 @@ function App() {
   const [todoValue, setTodoValue] = useState("");
   const [todos, setTodos] = useState(getTodosFromLS());
   const handleSubmit = (e) => {
-    if(todoValue.length<15){
+    if (todoValue.length < 15) {
       e.preventDefault();
-    const date = new Date();
-    const time = date.getTime();
-    let todoObject = {
-      ID: time,
-      TodoValue: todoValue,
-      completed: false,
-    };
-    setTodos([...todos, todoObject]);
-    setTodoValue("");
-    }
-    else{
-      alert("Max symbol size is 15")
+      const date = new Date();
+      const time = date.getTime();
+      let todoObject = {
+        ID: time,
+        TodoValue: todoValue,
+        completed: false,
+      };
+      setTodos([...todos, todoObject]);
+      setTodoValue("");
+    } else {
+      alert("Max symbol size is 15");
     }
   };
   const handleDelete = (id) => {
@@ -55,17 +54,20 @@ function App() {
   }, [todos]);
   return (
     <div className="App">
-      <form className="todo-input" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          onChange={(e) => setTodoValue(e.target.value)}
-          value={todoValue}
-          placeholder={"Add an Item"}
-          required
-        />
-        <button type="submit">
-          <FaPlus />
-        </button>
+      <h1>Todo App</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="todo-input">
+          <input
+            type="text"
+            onChange={(e) => setTodoValue(e.target.value)}
+            value={todoValue}
+            placeholder={"Add an Item"}
+            required
+          />
+          <button type="submit">
+            <FaPlus />
+          </button>
+        </div>
       </form>
       <div className="todo-container">
         {todos.map((individualTodo) => (
@@ -79,18 +81,26 @@ function App() {
               <span
                 style={
                   individualTodo.completed === true
-                    ? { textDecoration: "line-through" }
-                    : { textDecoration: "none" }
+                    ? { textDecoration: "line-through", color: "gray" }
+                    : { textDecoration: "none", color: "black" }
                 }
               >
                 {individualTodo.TodoValue}
               </span>
             </div>
-            <FaTrashRestore className="deleter" onClick={(e) => handleDelete(individualTodo.ID)} />
+            <FaTrashRestore
+              className="deleter"
+              onClick={(e) => handleDelete(individualTodo.ID)}
+            />
           </div>
         ))}
       </div>
-      <button className="clear" onClick={() => setTodos([])}>Delete All Items</button>
+      <div className="count_clear">
+        <span>Item count : {todos.length}</span>
+        <button className="clear" onClick={() => setTodos([])}>
+          Delete all items
+        </button>
+      </div>
     </div>
   );
 }
