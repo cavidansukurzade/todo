@@ -26,7 +26,7 @@ function App() {
       setTodos([...todos, todoObject]);
       setTodoValue("");
     } else {
-      alert("Max symbol size is 15");
+      alert("Max symbol size is 20");
     }
   };
   const handleDelete = (id) => {
